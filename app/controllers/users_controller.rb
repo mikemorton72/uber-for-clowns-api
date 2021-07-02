@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user, execpt: [:create]
   def create
     user = User.new(
       name: params[:name],
@@ -11,6 +12,12 @@ class UsersController < ApplicationController
     else
       render json: { errors: user.errors.full_messages }, status: :bad_request
     end
+  end
+
+  def index
+    users = User.all
+    users = users.sort_by {|user| user.bookings.count}.reverse
+    render json: users 
   end
 
 end

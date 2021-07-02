@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   # users
   post "/users" => "users#create"
-  get "/users" => "users#index" # order by most active
+  get "/users" => "users#index" # order by most bookings
 
-  #clowns (most popular)
-  get "/clowns" => "clowns#index"
+  #clowns
+  get "/clowns" => "clowns#index" # order by most bookings
   
   # sessions
   post "/sessions" => "sessions#create"

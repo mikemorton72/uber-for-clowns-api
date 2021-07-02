@@ -13,7 +13,7 @@ end
   )
 end
 
-50.times do
+200.times do
   Booking.create(
     clown_id: Clown.all.sample.id,
     user_id: User.all.sample.id,

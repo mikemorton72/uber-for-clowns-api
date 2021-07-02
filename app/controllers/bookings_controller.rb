@@ -14,6 +14,6 @@ class BookingsController < ApplicationController
   end
   
   def index
-    # 
+    render json: Booking.where(user_id: current_user.id)
   end
 end
